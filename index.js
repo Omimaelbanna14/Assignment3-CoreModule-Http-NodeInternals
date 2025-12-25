@@ -78,14 +78,15 @@
 // For allthe following APIs, you must use the fs module to read and write data from a JSON file (e.g., users.json).
 // Do not store or manage data using arrays (0.5 Grades).
 
+const http = require("http");
+const fs = require("fs");
+
 // 1. Create an API that adds a new user to your users stored in a JSON file. (ensure that the email of the new user doesn’t exist before) (1 Grade)
 // o URL: POST /user
 
 // Answer:
 
-// const http = require("http");
-// const fs = require("fs");
-// const server = http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
 //   if (req.method === "POST" && req.url === "/users") {
 //     let body = "";
 //     req.on("data", (chunk) => {
@@ -127,7 +128,6 @@
 //     res.writeHead(404, { "Content-Type": "application/json" });
 //     res.end(JSON.stringify({ message: "Invalid URL or METHOD" }));
 //   }
-// });
 // server.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
@@ -139,9 +139,6 @@
 
 // Answer:
 
-// const http = require("http");
-// const fs = require("fs");
-// const server = http.createServer((req, res) => {
 //   const cleanUrl = req.url.trim();
 //   if (req.method === "PATCH" && cleanUrl.startsWith("/student/")) {
 //     const id = parseInt(cleanUrl.split("/")[2]);
@@ -198,7 +195,6 @@
 //     res.writeHead(404, { "Content-Type": "application/json" });
 //     res.end(JSON.stringify({ message: "User ID not found." }));
 //   }
-// });
 // server.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
@@ -210,11 +206,8 @@
 
 // Answer:
 
-// const http = require("http");
-// const fs = require("fs");
 // const url = require("url");
 // const FILE_PATH = "./customers.json";
-// const server = http.createServer((req, res) => {
 //   const parsedUrl = url.parse(req.url, true);
 //   const method = req.method;
 //   const path = parsedUrl.pathname;
@@ -235,7 +228,6 @@
 //     res.statusCode = 404;
 //     res.end("Route not found");
 //   }
-// });
 // server.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
@@ -246,10 +238,7 @@
 
 // Answer:
 
-// const http = require("http");
-// const fs = require("fs");
 // const url = require("url");
-// const server = http.createServer((req, res) => {
 //   const parsedUrl = url.parse(req.url, true);
 //   const method = req.method;
 //   const path = parsedUrl.pathname;
@@ -262,7 +251,6 @@
 //     res.statusCode = 404;
 //     res.end("Route not found");
 //   }
-// });
 // server.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
@@ -273,9 +261,6 @@
 
 // Answer:
 
-// const http = require("http");
-// const fs = require("fs");
-// const server = http.createServer((req, res) => {
 //   if (req.method === "GET") {
 //     const urlParts = req.url.split("/");
 //     if (urlParts[1] === "client" && urlParts[2]) {
@@ -303,7 +288,7 @@
 //     res.writeHead(405, { "Content-Type": "application/json" });
 //     res.end(JSON.stringify({ message: "Method not allowed" }));
 //   }
-// });
+});
 // server.listen(3000, () => {
 //   console.log("Server running on port 3000");
 // });
